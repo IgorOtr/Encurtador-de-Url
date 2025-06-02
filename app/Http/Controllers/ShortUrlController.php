@@ -20,9 +20,9 @@ class ShortUrlController extends Controller
             'expires_at' => 'nullable|date|after:now',
         ]);
 
-        $shortCode = Str::random(6);
+        $shortCode = Str::random(9);
         while (ShortUrl::where('short_code', $shortCode)->exists()) {
-            $shortCode = Str::random(6);
+            $shortCode = Str::random(9);
         }
 
         $shortUrl = ShortUrl::create([
